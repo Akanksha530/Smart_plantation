@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Plantation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body class="background-image3">
+
+<style>
+
+    html body {
+      background-color: rgb(206, 206, 228);
+
+
+        .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; 
+    }
+    .video-container video {
+      width: 40%; }
+
+
+    }
+  </style>
+  <br /><br /><br /><br />
+  <div class="container1" height="20px">
+    <h2 style="text-align: center; margin: 0px; color: black">
+      <b>Discover the illness that has infected your plants</b>
+    </h2>
+    <br />
+    <br>
+  
+  <div style="
+      width: 350px;
+      height: 50rem;
+      margin: 0px auto;
+      color: black;
+      border-radius: 25px;
+      padding: 10px 10px;
+      font-weight: bold;
+    ">
+  
+    
+  
+  
+    <form class="form-signin" method=post enctype=multipart/form-data>
+  
+      <h2 ><b>Please Upload The Image</b></h2>
+      <br><br>
+      <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;">
+      <br><br>
+      <img id="output-image" class="rounded mx-auto d-block" />
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;">Predict</button>
+   
+  
+    </form>
+  </div>
+ 
+
+<!-- </div>
+<script type="text/javascript">
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image')
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script> -->
+
+</div>
+</div>
+<div class="video-container">
+  <h2 style="text-align: center; margin: 0px; color: rgb(245, 241, 241)" >Check how to upload picture</h2>
+  <video src="static\images\Untitled video - Made with Clipchamp (2).mp4" controls></video>
+  </div>
+</body>
+</html>

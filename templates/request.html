@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote - Smart Plantation Monitoring System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='request.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="background-image">
+
+   <!-- <div class="overlay"></div>-->
+    <div class="quote-container">
+        <h1>Request a Quote</h1>
+        <p>Please fill out the form below to request a quote for our Smart Plantation Monitoring System. We will get back to you with a detailed estimate tailored to your needs.</p>
+
+        <form action="/submit_quote" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="project-details">Project Details:</label>
+                <textarea id="project-details" name="project_details" rows="6" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Estimated Budget:</label>
+                <select id="budget" name="budget" required>
+                    <option value="">Select your budget range</option>
+                    <option value="Under $5,000">Under $5,000</option>
+                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                    <option value="$10,000 - $20,000">$10,000 - $20,000</option>
+                    <option value="Above $20,000">Above $20,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="submit-button">Submit Request</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

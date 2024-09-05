@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Smart Plantation Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='services.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="services-header">
+        <div class="header-content">
+            <h1>Our Services</h1>
+            <p>We provide advanced monitoring solutions to enhance your plantation's productivity and sustainability.</p>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-container">
+            <div class="service-card">
+                <a href="{{ url_for('second') }}"> 
+                    <h2><strong>Crop Recommendations</strong></h2> </a>Receive personalized suggestions for the best crops to grow based on your specific environmental and soil conditions.</li>
+                     </div>
+            <div class="service-card">
+                <a href="{{ url_for('first') }}"> 
+                    <h2><strong>Crop Deficiency</strong></h2> </a>Identify nutrient deficiencies in your crops early to take timely corrective actions.</li>
+                     </div>
+            <div class="service-card">
+                <h2><strong>Nutrient deficiency detection</strong></h2>
+                <p>In the digital green watchtower, nutrient deficiency detection whispers to the leaves—interpreting their faded hues, diagnosing hunger, and guiding timely nourishment.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Smart Plantation Monitoring System</p>
+    </footer>
+
+</body>
+</html>
