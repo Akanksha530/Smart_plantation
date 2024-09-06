@@ -1,20 +1,4 @@
-<!-- <style>
-    .mt-0 {
-    margin-top: 50 !important;
-  }
-  </style>
-  
-  
-  <div class="container py-2 mx-auto my-50 h-10 " style="margin: 12rem;">
-    <div class="row">
-        <div class="col-sm py-2 py-md-3">
-            <div class="card card-body" style="justify-content: center;">
-                 <h1 class="text-center"><b>You should grow  <i>{{ prediction }}</i>  in your farm</b></h1>
-            </div>
-        </div>
-    </div>
-  </div> -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,38 +7,218 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .mt-0 {
-            margin-top: 50px !important;
-        }
-        .card-body {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #060606c2;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            margin-top: 12rem;
+            margin-top: 5rem;
         }
-        .text-center {
-            color: #343a40;
+        .recommendation {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgb(255, 255, 255);
+            text-align: center;
+        }
+        .recommendation h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
         }
         .highlight {
-            color: #007bff;
+            color: #28a745;
+        }
+        .crop-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+        .crop-info {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .crop-info h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .crop-info p {
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="container py-2 mx-auto my-50 h-10">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-8 py-2 py-md-3">
-                <div class="card card-body text-center">
-                    <h1><b>You should grow <i class="highlight">{{ prediction }}</i> in your farm</b></h1>
+            <div class="col-md-8">
+                <div class="recommendation">
+                    <img src="static/images/index7.png" alt="Crop Image" class="crop-image">
+                    <h1>You should grow <span class="highlight">{{ prediction }}</span> in your farm</h1>
+                    <p>Based on current soil, weather, and environmental conditions, growing <span class="highlight">{{ prediction }}</span> will yield the best results for your farm.</p>
+                    <button class="btn btn-custom" id="learnMoreBtn">Learn More</button>
+                    
+                    <!-- Hidden Crop Info -->
+                    <div class="crop-info" id="cropInfo">
+                        <h3 id="cropName"></h3>
+                        <p id="cropDetails"></p>
+                        <p id="cropTips"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Define crop information
+        const cropData = {
+    'rice': {
+        name: 'Rice',
+        details: 'Rice is a staple food and requires a lot of water and warm conditions. It grows best in tropical climates with ample rainfall.',
+        tips: 'Ensure the soil is kept flooded during most of its growth cycle, and use nitrogen-based fertilizers for higher yields.'
+    },
+    'maize': {
+        name: 'Maize',
+        details: 'Maize, or corn, is widely grown for food, fodder, and industrial purposes. It needs full sun and well-drained soil.',
+        tips: 'Sow seeds after the last frost and provide plenty of water during germination. Control weeds early to help the crop thrive.'
+    },
+    'jute': {
+        name: 'Jute',
+        details: 'Jute is a fibrous crop used in making rope, sacks, and other materials. It thrives in warm, humid climates with plenty of rainfall.',
+        tips: 'Grow jute in fertile, loamy soil. Ensure consistent moisture during the growing season and practice crop rotation for healthy yields.'
+    },
+    'cotton': {
+        name: 'Cotton',
+        details: 'Cotton is a soft fiber crop used in textile production. It grows best in warm climates with a long frost-free period.',
+        tips: 'Ensure well-drained, loamy soil and plenty of sunlight. Regular irrigation is crucial during flowering and boll development stages.'
+    },
+    'coconut': {
+        name: 'Coconut',
+        details: 'Coconut palms thrive in tropical coastal areas and are widely grown for their fruit and oil. They require sandy, well-drained soil.',
+        tips: 'Coconut trees need a lot of sunlight and consistent watering. Regularly clear weeds and ensure proper spacing for optimal growth.'
+    },
+    'papaya': {
+        name: 'Papaya',
+        details: 'Papaya is a tropical fruit that grows well in warm climates with rich, well-drained soil.',
+        tips: 'Plant papayas in full sun and ensure they are protected from strong winds. Regular watering and the use of organic fertilizers promote fruit growth.'
+    },
+    'orange': {
+        name: 'Orange',
+        details: 'Oranges are citrus fruits that require a warm, subtropical climate to thrive. They need well-drained soil and plenty of sunshine.',
+        tips: 'Water regularly during dry spells and fertilize with a nitrogen-rich fertilizer for healthy fruit production. Pruning promotes air circulation.'
+    },
+    'apple': {
+        name: 'Apple',
+        details: 'Apples are a cool-climate fruit that require cold winters and mild summers to grow well.',
+        tips: 'Plant in well-drained soil with full sun, and prune regularly to promote air circulation and growth. Adequate pest control is crucial for a healthy harvest.'
+    },
+    'muskmelon': {
+        name: 'Muskmelon',
+        details: 'Muskmelon is a sweet, juicy fruit that grows well in warm, sunny climates with sandy, well-drained soil.',
+        tips: 'Water the plants regularly and ensure the soil is consistently moist during flowering and fruit set. Provide support to avoid fruit rot.'
+    },
+    'watermelon': {
+        name: 'Watermelon',
+        details: 'Watermelon is a large, refreshing fruit that thrives in hot climates with well-drained, sandy soil.',
+        tips: 'Plant in full sun and water regularly. Make sure the soil remains moist throughout the growing season for a sweeter yield.'
+    },
+    'grapes': {
+        name: 'Grapes',
+        details: 'Grapes are fruit-bearing vines that grow best in regions with warm summers and well-drained, fertile soil.',
+        tips: 'Plant in an area with full sun, and prune regularly to control the vine’s growth. Fertilize during the growing season and ensure good drainage.'
+    },
+    'mango': {
+        name: 'Mango',
+        details: 'Mangoes are tropical fruits that grow best in warm, frost-free areas. They thrive in well-drained soil and full sun exposure.',
+        tips: 'Water young trees frequently, but once established, mangoes can tolerate dry conditions. Pruning helps the tree maintain shape and productivity.'
+    },
+    'banana': {
+        name: 'Banana',
+        details: 'Bananas are tropical fruits that grow in hot, humid climates and require rich, well-drained soil with a lot of organic matter.',
+        tips: 'Bananas need plenty of water, especially during flowering and fruiting. Apply regular fertilizer, and keep the area free from weeds.'
+    },
+    'pomegranate': {
+        name: 'Pomegranate',
+        details: 'Pomegranates are drought-tolerant fruits that grow in warm, dry climates with well-drained soil.',
+        tips: 'Pomegranates require full sun and minimal watering. Prune annually to ensure proper airflow and maximize fruit yield.'
+    },
+    'lentil': {
+        name: 'Lentil',
+        details: 'Lentils are legumes that grow in cool, dry climates and are commonly cultivated for their edible seeds.',
+        tips: 'Grow lentils in well-drained soil and avoid excessive watering. Lentils fix nitrogen into the soil, making them excellent for crop rotation.'
+    },
+    'blackgram': {
+        name: 'Blackgram',
+        details: 'Blackgram is a type of pulse widely grown for its protein-rich seeds. It requires warm temperatures and thrives in loamy soil.',
+        tips: 'Water sparingly and ensure the soil is well-drained. It’s ideal to plant blackgram during the monsoon season for the best yield.'
+    },
+    'mungbean': {
+        name: 'Mungbean',
+        details: 'Mungbean is a legume known for its protein-rich seeds, commonly grown in warm climates with well-drained, fertile soil.',
+        tips: 'Ensure moderate irrigation during growth, but avoid waterlogging. Use phosphorus-rich fertilizers to enhance pod development.'
+    },
+    'mothbeans': {
+        name: 'Mothbeans',
+        details: 'Mothbeans are drought-tolerant legumes, ideal for arid and semi-arid regions, grown primarily for their edible seeds.',
+        tips: 'Grow in sandy or loamy soil with minimal water requirements. Avoid excessive irrigation and use organic fertilizers for better yields.'
+    },
+    'pigeonpeas': {
+        name: 'Pigeonpeas',
+        details: 'Pigeonpeas are a drought-tolerant legume crop that thrives in tropical and subtropical regions.',
+        tips: 'Plant pigeonpeas in full sun with well-drained soil. They need little watering, especially after establishment, making them ideal for dry areas.'
+    },
+    'kidneybeans': {
+        name: 'Kidneybeans',
+        details: 'Kidneybeans are a popular legume crop grown for their edible seeds. They thrive in warm climates with well-drained soil.',
+        tips: 'Ensure the soil is consistently moist but not waterlogged. Rotate crops yearly to prevent soil depletion and ensure nitrogen fixation.'
+    },
+    'chickpea': {
+        name: 'Chickpea',
+        details: 'Chickpeas are a protein-rich legume grown primarily in dry climates with well-drained, loamy soil.',
+        tips: 'Water sparingly and avoid waterlogging. Use organic fertilizers to improve soil fertility and ensure good pod development.'
+    },
+    'coffee': {
+        name: 'Coffee',
+        details: 'Coffee plants thrive in tropical highlands with rich, well-drained soil and moderate temperatures.',
+        tips: 'Grow coffee in partial shade and ensure consistent watering, especially during the growing season. Fertilize with organic matter for optimal yield.'
+    }
+};
+
+
+        // Function to show crop info
+        document.getElementById('learnMoreBtn').addEventListener('click', function() {
+            const prediction = "{{ prediction }}"; // Placeholder, replace with actual prediction variable
+            const cropInfo = cropData[prediction.toLowerCase()]; // Match the predicted crop
+            
+            if (cropInfo) {
+                document.getElementById('cropName').innerText = cropInfo.name;
+                document.getElementById('cropDetails').innerText = cropInfo.details;
+                document.getElementById('cropTips').innerText = cropInfo.tips;
+                document.getElementById('cropInfo').style.display = 'block';
+            } else {
+                document.getElementById('cropName').innerText = "Information not available";
+            }
+        });
+    </script>
 </body>
 </html>
