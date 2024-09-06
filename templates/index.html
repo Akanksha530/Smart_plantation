@@ -35,7 +35,7 @@
                 <li><a href="{{ url_for('services') }}">Services</a></li>
                 <li><a href="#">How It Works</a></li>
                 <li><a href="{{ url_for('about') }}">About Us</a></li>
-                <li><a href="{{ url_for('request') }}">Request a Quote</a></li>
+                <li><a href="{{ url_for('req') }}">Request a Quote</a></li>
                 {% if session.get('user') %}
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
