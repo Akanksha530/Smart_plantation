@@ -145,7 +145,10 @@ def crop_prediction():
         rainfall = float(request.form['rainfall'])
         data = np.array([[N, P, K, T, H, ph, rainfall]])
        
-        
+        my_prediction = crop_recommendation_model.predict(data)
+        final_prediction = my_prediction[0]
+        crop_index = np.argmax(final_prediction)
+        crop_name = reverse_crop_dict.get(crop_index + 1, "Unknown Crop")
         return render_template('recommend_result.html', prediction=crop_name)
 
 # @app.route('/crop-deficiency', methods=['POST'])
