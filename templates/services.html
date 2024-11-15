@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Our Services - Smart Plantation Monitoring</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='services.css') }}">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-heading">
+                <a href="{{ url_for('index') }}" class="logo-link" aria-label="Smart Plantation Home">
+                    <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
+                </a>
+                <h1 class="navbar-heading">SMART <br>Plantation</h1>
+            </div>
+    
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact_us">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Header Section -->
     <header class="services-header">
         <div class="header-content">
@@ -19,15 +39,17 @@
     <section class="services-section">
         <div class="services-container">
             <div class="service-card">
-                <a href="{{ url_for('second') }}"> 
-                    <h2><strong>Crop Recommendations</strong></h2> </a>Receive personalized suggestions for the best crops to grow based on your specific environmental and soil conditions.</li>
-                     </div>
+                <a href="{{ url_for('second') }}">
+                    <h2><strong>Crop Recommendations</strong></h2>
+                </a>
+                <p>Receive personalized suggestions for the best crops to grow based on your specific environmental and soil conditions.</p>
+            </div>
             <div class="service-card">
-                <a href="{{ url_for('first') }}"> 
-                    <h2><strong>Crop Deficiency</strong></h2> </a>Identify nutrient deficiencies in your crops early to take timely corrective actions.</li>
-                     </div>
-           
-            
+                <a href="{{ url_for('first') }}">
+                    <h2><strong>Crop Deficiency</strong></h2>
+                </a>
+                <p>Identify nutrient deficiencies in your crops early to take timely corrective actions.</p>
+            </div>
         </div>
     </section>
 
@@ -35,6 +57,5 @@
     <footer class="footer">
         <p>&copy; 2024 Smart Plantation Monitoring System</p>
     </footer>
-
 </body>
 </html>
