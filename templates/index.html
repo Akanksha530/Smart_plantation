@@ -12,12 +12,17 @@
 <body class="background-image">
 
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Main Navigation">
     <div class="navbar-container">
+        <!-- Logo and Heading -->
         <div class="logo-heading">
-            <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
-            <h1 class="navbar-heading">SMART<br>Plantation</h1>
+            <a href="{{ url_for('index') }}" class="logo-link" aria-label="Smart Plantation Home">
+                <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
+            </a>
+            <h1 class="navbar-heading">AI<br>SMART<br>Plantation</h1>
         </div>
+
+        <!-- Navigation Menu -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="{{ url_for('services') }}" class="nav-link">Services</a></li>
             <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
@@ -30,6 +35,8 @@
                 <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
             {% endif %}
         </ul>
+
+        <!-- CTA Button -->
         <a href="{{ url_for('contact_us') }}" class="cta-button">Contact Us</a>
     </div>
 </nav>
@@ -43,27 +50,7 @@
         <a href="{{ url_for('services') }}" class="cta-button">Get Started</a>
     </div>
 </header>
-<!-- How It Works Section 
-<section id="how-it-works" class="how-it-works-section content-section">
-    <h2>How It Works</h2>
-    <div class="steps-container">
-        <div class="step">
-            <i class="fas fa-seedling"></i>
-            <h3>Step 1: Set Up Sensors</h3>
-            <p>Place sensors around your plantation to gather real-time data on soil, weather, and plant health.</p>
-        </div>
-        <div class="step">
-            <i class="fas fa-satellite-dish"></i>
-            <h3>Step 2: Monitor Remotely</h3>
-            <p>Receive data on your mobile device or desktop, allowing for convenient monitoring anytime, anywhere.</p>
-        </div>
-        <div class="step">
-            <i class="fas fa-chart-line"></i>
-            <h3>Step 3: Analyze Data</h3>
-            <p>Our system analyzes data to provide insights and recommendations for optimal plantation care.</p>
-        </div>
-    </div>
-</section>-->
+
 
 <!-- New Features Section -->
 <section id="additional-features" class="how-it-works-section content-section">
