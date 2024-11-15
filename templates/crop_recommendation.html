@@ -6,176 +6,135 @@
     <title>Smart Plantation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
-</head>
-<body class="background-image2">
-<style>
-    html body {
-      background-color: rgb(196, 232, 214);
-    }
-   
-    label {
-        display: block;
-        font-size: 17px;
-        font-weight: bold;
-    }
-    input {
-        width: 100%;
-        padding: 7px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    select {
-        width: 100%;
-        padding: 7px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    .button-container{
-    text-align: center; 
-    height: 100vh; 
-}
-button {
-    display: block; 
-    margin: 0 auto;
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/images/index03.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-}
+        .header {
+            background-color: rgba(100, 90, 40, 0.8);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
 
-</style>
-  
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color:white;
+        }
 
-  <br /><br />
-  <div class="container2"> 
-    <h2 style="text-align: center; margin: 0px; color: rgb(7, 7, 7)">
-    <b>Discover the ideal crop for your farm</b>
-  </h2>
-  <br />
-  
-  <div
-    style="
-      width: 350px;
-      height: 50rem;
-      margin: 0px auto;
-      color: rgb(0, 0, 0);
-      border-radius: 25px;
-      padding: 8px;"
-     
-   
->
-    <form method="POST" action="{{ url_for('crop_prediction') }}">
-        
-      <div style="padding: 6px">
-        <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
-        <input
-          type="number"
-          class="form-control"
-          id="Nitrogen"
-          name="nitrogen"
-          placeholder="Enter value-10,20,30..."
-          style="font-weight: bold"
-          required
-        />
-      </div>
-      <div style="padding: 6px">
-        <label for="Phosphorous" style="font-size: 17px"
-          ><b>Phosphorous</b></label
-        >
-        <input
-          type="number"
-       
-          id="Phosphorous"
-          name="phosphorous"
-          placeholder="Enter value-10,20,30..."
-          style="font-weight: bold"
-          required
-        />
-      </div>
-  
-      <div style="padding: 6px;">
-        <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
-        <input
-          type="number"
-          class="form-control"
-          id="Pottasium"
-          name="pottasium"
-          placeholder="Enter value-10,20,30..."
-          style="font-weight: bold"
-          required
-        />
-      </div>
+        .container {
+            margin: 30px auto;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-      <div style="padding: 6px">
-        <label for="Temperature" style="font-size: 17px"><b>Temperature</b></label>
-        <input
-          type="number"
-          id="Temperature"
-          name="temperature"
-          placeholder="Enter value-10,15,20,25...."
-          style="font-weight: bold"
-          required
-        />
-      </div>
+        h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #333;
+        }
 
-      <div style="padding: 6px;">
-        <label for="Humidity" style="font-size: 17px"><b>Humidity</b></label>
-        <input
-          type="number"
-          id="Humidity"
-          name="humidity"
-          placeholder="Enter value-1,2,3,...."
-          style="font-weight: bold"
-          required
-        />
-      </div>
-
-
-      <div style="padding: 6px ;">
-        <label for="Pottasium" style="font-size: 17px"><b>PH</b></label>
-        <input
-          type="number"
-          id="PH"
-          name="ph"
-          placeholder="Enter value-1,2,3,...."
-          style="font-weight: bold"
-          required
-        />
-      </div>
-
-      <div style="padding: 6px ;">
-        <label for="Pottasium" style="font-size: 17px"><b>Rainfall</b></label>
-        <input
-          type="number"
-          id="Rainfall"
-          name="rainfall"
-          placeholder="Enter value-1,2,3,...."
-          style="font-weight: bold"
-          required
-        />
-      </div>
-    
-  
-      <div style="padding: 8px" >
-        <button
-          type="submit"
-          
-          style="
-            color: rgb(14, 13, 13);
-            background-color: rgb(111, 192, 53);
+        form label {
+            font-size: 1rem;
             font-weight: bold;
-            width: 130px;
-            height: 50px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #6fc035;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
             border-radius: 10px;
-            font-size: 18px;
-          "
-        >
-          Predict
-        </button>
-      </div>
-    </form>
-  </div>
-  </div>
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #57a82b;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Smart Plantation</h1>
+        <p>Discover the ideal crop for your farm</p>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="static/images/index6.jpg" alt="Farm Image">
+        </div>
+        <h2>Input Your Data</h2>
+        <form method="POST" action="{{ url_for('crop_prediction') }}">
+            <label for="Nitrogen">Nitrogen</label>
+            <input type="number" id="Nitrogen" name="nitrogen" placeholder="Enter value (e.g., 10, 20, 30)" required>
+
+            <label for="Phosphorous">Phosphorous</label>
+            <input type="number" id="Phosphorous" name="phosphorous" placeholder="Enter value (e.g., 10, 20, 30)" required>
+
+            <label for="Pottasium">Potassium</label>
+            <input type="number" id="Pottasium" name="pottasium" placeholder="Enter value (e.g., 10, 20, 30)" required>
+
+            <label for="Temperature">Temperature</label>
+            <input type="number" id="Temperature" name="temperature" placeholder="Enter value (e.g., 15, 20, 25)" required>
+
+            <label for="Humidity">Humidity</label>
+            <input type="number" id="Humidity" name="humidity" placeholder="Enter value (e.g., 50, 60, 70)" required>
+
+            <label for="PH">pH</label>
+            <input type="number" id="PH" name="ph" placeholder="Enter value (e.g., 6.5, 7.0, 7.5)" required>
+
+            <label for="Rainfall">Rainfall</label>
+            <input type="number" id="Rainfall" name="rainfall" placeholder="Enter value (e.g., 100, 200, 300)" required>
+
+            <div style="text-align: center; margin-top: 15px;">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Smart Plantation. All rights reserved.
+    </div>
 </body>
 </html>
