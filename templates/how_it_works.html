@@ -5,77 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How It Works</title>
     <style>
+        /* Body Styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            background-size: 400% 400%;
+            animation: gradientFlow 10s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            font-size: 2em;
-            color: #4b6587;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .section {
-            margin-bottom: 30px;
-        }
-        .section h2 {
-            font-size: 1.5em;
-            color: #3867d6;
-            margin-bottom: 10px;
-        }
-        .section p {
-            font-size: 1em;
-            line-height: 1.6;
-            color: #555;
-        }
-        .instructions {
-            list-style: disc;
-            padding-left: 20px;
             color: #333;
         }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 850px;
+            background: #ffffffcc;
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1.2s ease-in-out;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2.5em;
+            color: #2d89ef;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 1px 2px 5px rgba(45, 137, 239, 0.4);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f9f9f9, #f1f1f1);
+            border-left: 4px solid #2d89ef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Headings */
+        .section h2 {
+            font-size: 1.8em;
+            color: #2d89ef;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Section Content */
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Instructions List */
+        .instructions {
+            margin: 15px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background: #e0f7fa;
+            color: #00796b;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions li::before {
+            content: "•";
+            margin-right: 10px;
+            font-size: 1.5em;
+            color: #2d89ef;
+        }
+
+        /* Buttons */
         .button {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
-            color: #ffffff;
-            background-color: #4b7bec;
-            border-radius: 5px;
+            padding: 12px 25px;
+            color: #fff;
+            background: #2d89ef;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(45, 137, 239, 0.4);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
+
         .button:hover {
-            background-color: #3867d6;
+            background: #1e6ab5;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(45, 137, 239, 0.6);
         }
     </style>
 </head>
-<body style="color: #8eabf0;">
+<body>
     <div class="container">
         <h1>How It Works</h1>
 
         <!-- Crop Recommendation Section -->
         <div class="section">
             <h2>1. Crop Recommendation and Improvement Suggestions</h2>
-            <p>This tool helps you select the best crop for your soil and provides suggestions to improve crop yield. Here's how it works:</p>
+            <p>Optimize your farming with tailored recommendations for crop selection and yield improvement. Here’s how you can use it effectively:</p>
             <ul class="instructions">
-                <li>Fill out the form with details such as soil type, weather conditions, and other relevant factors.</li>
-                <li>Submit the form, and the model will analyze the data to recommend a crop that is most suitable for your conditions.</li>
-                <li>Additionally, you'll receive suggestions to improve crop yield based on the provided information.</li>
+                <li>Fill out the form with soil type, weather conditions, and other relevant details.</li>
+                <li>Submit your data to receive a customized crop recommendation.</li>
+                <li>Explore additional tips to enhance crop yield based on your inputs.</li>
             </ul>
             <a href="{{ url_for('second') }}" class="button">Go to Crop Recommendation</a>
         </div>
@@ -83,11 +152,11 @@
         <!-- Disease Detection Section -->
         <div class="section">
             <h2>2. Plant Disease Detection</h2>
-            <p>This feature allows you to identify diseases affecting your plants by analyzing images. Follow these steps:</p>
+            <p>Identify and manage plant diseases efficiently with our image-based detection tool. Here’s the simple process:</p>
             <ul class="instructions">
-                <li>Take a clear picture of the affected plant's leaf or area showing symptoms.</li>
+                <li>Capture a clear photo of the affected plant's leaves or areas showing symptoms.</li>
                 <li>Upload the image through the Disease Detection form.</li>
-                <li>Our model will analyze the image and display the predicted disease, helping you take appropriate action to protect your crops.</li>
+                <li>Receive a detailed diagnosis and actionable advice to protect your crops.</li>
             </ul>
             <a href="{{ url_for('disease') }}" class="button">Go to Disease Detection</a>
         </div>
