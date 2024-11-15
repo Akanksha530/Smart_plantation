@@ -43,8 +43,7 @@
         <a href="{{ url_for('services') }}" class="cta-button">Get Started</a>
     </div>
 </header>
-
-<!-- How It Works Section -->
+<!-- How It Works Section 
 <section id="how-it-works" class="how-it-works-section content-section">
     <h2>How It Works</h2>
     <div class="steps-container">
@@ -64,15 +63,108 @@
             <p>Our system analyzes data to provide insights and recommendations for optimal plantation care.</p>
         </div>
     </div>
+</section>-->
+
+<!-- New Features Section -->
+<section id="additional-features" class="how-it-works-section content-section">
+    <h2>How It Works</h2>
+    <div class="steps-container">
+        <!-- Crop Recommendation Feature -->
+        <div class="step">
+            <i class="fas fa-leaf"></i>
+            <h3>Crop Recommendation and Improvement Suggestions</h3>
+            <p>This tool helps you select the best crop for your soil and provides personalized suggestions to improve crop yield.</p>
+            <ul>
+                <li>Fill out the form with details such as soil type, location, and weather conditions.</li>
+                <li>Submit the form for crop recommendations tailored to your conditions.</li>
+                <li>Receive improvement suggestions based on your provided information.</li>
+            </ul>
+            <a href="{{ url_for('second') }}" class="cta-button">Go to Crop Recommendation</a>
+        </div>
+
+        <!-- Plant Disease Detection Feature -->
+        <div class="step">
+            <i class="fas fa-diagnoses"></i>
+            <h3>Plant Disease Detection</h3>
+            <p>Identify diseases affecting your plants by analyzing images of affected leaves or areas showing symptoms.</p>
+            <ul>
+                <li>Take a clear picture of the affected area.</li>
+                <li>Upload the image through the Disease Detection form.</li>
+                <li>Our model analyzes the image and predicts the disease to guide appropriate action.</li>
+            </ul>
+            <a href="{{ url_for('first') }}"class="cta-button">Go to Disease Detection</a>
+        </div>
+    </div>
 </section>
 
 <!-- Our Technology Section -->
 <section class="technology-section content-section">
     <h2>Our Advanced Technology</h2>
     <p>We use cutting-edge technology like IoT, AI, and machine learning to deliver precise data and insights for plantation management.</p>
-    <img src="{{ url_for('static', filename='tech_image.jpg') }}" alt="Technology Image" class="technology-image">
+    <img src="/static/images/result.png" alt="Technology Image" class="technology-image">
+</section>
+<!-- Our Mission Section -->
+<section class="mission-section content-section">
+    
+    <div class="mission-content">
+        <div class="mission-text">
+            <h2>Our Mission</h2>
+            <p>At Smart Plantation Monitoring System, we aim to revolutionize the agricultural landscape by leveraging modern technology. Our mission is to support farmers worldwide in optimizing yields, preserving resources, and practicing sustainable agriculture for a better future.</p>
+            <p>We believe that by making advanced technology accessible to farmers and plantation managers, we can foster a healthier planet while increasing food security and profitability for all.</p>
+        </div>
+        <div class="mission-image">
+            <img src="/static/images/mission.webp" alt="Mission Image">
+        </div>
+    </div>
+
+    <div class="mission-goals">
+        <h3>Our Goals</h3>
+        <div class="goal-container">
+            <div class="goal">
+                <img src="/static/images/yield.webp" alt="Goal 1">
+                <h4>Maximize Yield</h4>
+                <p>Our advanced tools help increase crop yield through data-driven insights and automation.</p>
+            </div>
+            <div class="goal">
+                <img src="/static/images/resource.webp" alt="Goal 2">
+                <h4>Resource Preservation</h4>
+                <p>We optimize water and soil usage to ensure sustainable farming practices for generations to come.</p>
+            </div>
+            <div class="goal">
+                <img src="/static/images/decision.jpg" alt="Goal 3">
+                <h4>Data-Driven Decisions</h4>
+                <p>Through real-time monitoring and analytics, farmers can make informed decisions for better productivity.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
+
+<!-- Why Choose Us Section -->
+<section class="why-choose-us-section content-section">
+    <h2>Why Choose Us</h2>
+    <ul class="choose-us-list">
+        <li><strong>Precision Agriculture:</strong> With our platform, you gain precision insights, allowing for better-informed decisions and maximized yield.</li>
+        <li><strong>Expert Support:</strong> Our team includes agronomists and tech experts who provide guidance and support at every step.</li>
+        <li><strong>Advanced Analytics:</strong> Our AI-powered analytics make it easy to interpret data, predicting trends, and suggesting actionable steps.</li>
+        <li><strong>Cost-Effective Solutions:</strong> Smart Plantation Monitoring System is tailored to offer scalable, affordable options for all types of plantations.</li>
+        <li><strong>Proven Results:</strong> See results with improved yield, reduced water usage, and healthier, more sustainable crops.</li>
+    </ul>
+</section>
+
+
+<!-- Contact Information Section 
+<section class="contact-info-section content-section">
+    <h2>Get in Touch</h2>
+    <p>We'd love to hear from you! Whether you're interested in learning more about our platform, getting a quote, or just have a question, feel free to reach out.</p>
+    <ul class="contact-list">
+        <li><i class="fas fa-phone-alt"></i> Phone: +1 234-567-890</li>
+        <li><i class="fas fa-envelope"></i> Email: support@smartplantation.com</li>
+        <li><i class="fas fa-map-marker-alt"></i> Address: 123 Agriculture Lane, Green City, Country</li>
+    </ul>
+    <a href="{{ url_for('contact_us') }}" class="cta-button">Contact Us</a>
+</section>
+-->
 <!-- Success Stories Section -->
 <section class="success-stories-section content-section">
     <h2>Success Stories</h2>
@@ -80,12 +172,12 @@
         <div class="story">
             <h3>Organic Farm Transformation</h3>
             <p>“Our organic farm saw a 30% increase in yield after implementing the Smart Plantation System. The data insights are invaluable!”</p>
-            <span>- Alex M., Farm Owner</span>
+            <span> Farm Owner</span>
         </div>
         <div class="story">
             <h3>Sustainable Agriculture</h3>
             <p>“Smart Plantation has helped us reduce water usage by 20%, making our farming practices more sustainable.”</p>
-            <span>- Lisa K., Agronomist</span>
+            <span>Agronomist</span>
         </div>
     </div>
 </section>

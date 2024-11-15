@@ -214,6 +214,200 @@ body {
     background-color: #f9f9f9;
     border-radius: 8px;
 }
+/* Mission Section */
+.mission-section {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom right, #f7f7f7, #e0e0e0); /* Soft gradient background */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-section::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: rgba(40, 167, 69, 0.1); /* Green circle for accent */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.mission-section::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(40, 167, 69, 0.1); /* Another accent circle */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.mission-section h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.mission-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+.mission-section p:last-of-type {
+    margin-bottom: 0; /* Removes margin for the last paragraph */
+}
+
+/* Mission Content */
+.mission-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.mission-text {
+    flex: 1;
+    text-align: left;
+    color: #555;
+}
+
+.mission-text p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.mission-image img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Mission Goals */
+.mission-goals {
+    margin-top: 40px;
+}
+
+.mission-goals h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.goal-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.goal {
+    flex: 1;
+    text-align: center;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.goal img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    max-width: 180px;
+}
+
+.goal h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #28a745;
+}
+
+.goal p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+
+/* Why Choose Us Section */
+.why-choose-us-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.choose-us-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: auto;
+}
+
+.choose-us-list li {
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 50px 20px;
+    background-color: #eceef1;
+    text-align: center;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.testimonial {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    padding: 50px 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.contact-list li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 /* Get Started Section */
 .get-started-section {
