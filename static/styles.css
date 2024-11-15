@@ -296,7 +296,7 @@ body {
 
 .mission-image img {
     width: 100%;
-    max-width: 380px;
+    max-width: 450px;
     height: auto;
     border-radius: 8px;
 }
@@ -346,26 +346,52 @@ body {
     color: #555;
 }
 
-
 /* Why Choose Us Section */
 .why-choose-us-section {
-    background-color: #fff;
-    padding: 50px 20px;
+    background-color: #f8f9fa;
+    padding: 60px 30px;
     text-align: center;
+    border-radius: 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /*max-width: 900px;*/
+    margin: auto;
+    border: 1px solid #e3e3e3;
+}
+
+.why-choose-us-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .choose-us-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     text-align: left;
-    max-width: 800px;
-    margin: auto;
 }
 
 .choose-us-list li {
-    font-size: 1.1rem;
-    padding: 10px 0;
+    font-size: 1.2rem;
+    padding: 15px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 }
+
+.choose-us-list li .icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #4CAF50;
+}
+
+.choose-us-list li strong {
+    color: #333;
+}
+
 
 /* Testimonials Section */
 .testimonials-section {
