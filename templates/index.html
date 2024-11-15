@@ -25,7 +25,7 @@
         <!-- Navigation Menu -->
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="{{ url_for('services') }}" class="nav-link">Services</a></li>
-            <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+            <li class="nav-item"><a href="{{ url_for('how_it_works')}}"class="nav-link">How It Works</a></li>
             <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
             <li class="nav-item"><a href="{{ url_for('req') }}" class="nav-link">Request a Quote</a></li>
             {% if session.get('user') %}
