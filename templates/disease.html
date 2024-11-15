@@ -6,79 +6,115 @@
     <title>Smart Plantation</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
-</head>
-<body class="background-image3">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/images/index04.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
+        .header {
+            background-color:white;
+            color:black;
+            padding: 20px;
+            text-align: center;
 
-    html body {
-      background-color: rgb(206, 206, 228);
+        }
 
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .container {
+            margin: 30px auto;
+            max-width: 500px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .form-signin input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .form-signin button {
+            background-color: #6fc035;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .form-signin button:hover {
+            background-color: #57a82b;
+        }
 
         .video-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; 
-    }
-    .video-container video {
-      width: 40%; }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40vh;
+            margin-bottom: 20px;
+        }
 
+        #output-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Smart Plantation</h1>
+        <p>Discover the illness that has infected your plants</p>
+    </div>
+<!-- <--
+    <div class="video-container">
+        <video width="80%" autoplay loop muted>
+            <source src="static/images/.jpg" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>--> 
 
-    }
-  </style>
-  <br /><br /><br /><br />
-  <div class="container1" height="20px">
-    <h2 style="text-align: center; margin: 0px; color: black">
-      <b>Discover the illness that has infected your plants</b>
-    </h2>
-    <br />
-    <br>
-  
-  <div style="
-      width: 350px;
-      height: 50rem;
-      margin: 0px auto;
-      color: black;
-      border-radius: 25px;
-      padding: 10px 10px;
-      font-weight: bold;
-    ">
-  
-    
-  
-  
-    <form class="form-signin" method=post enctype=multipart/form-data>
-  
-      <h2 ><b>Please Upload The Image</b></h2>
-      <br><br>
-      <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;">
-      <br><br>
-      <img id="output-image" class="rounded mx-auto d-block" />
-      <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;">Predict</button>
-   
-  
-    </form>
-  </div>
- 
+    <div class="container">
+        <h2><b>Please Upload The Image</b></h2>
+        <form class="form-signin" action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)">
+            <img id="output-image" class="rounded mx-auto d-block" >
+            <button type="submit" style="align-items: center;">Predict</button>
+        </form>
+    </div>
 
-<!-- </div>
-<script type="text/javascript">
-  function preview_image(event) {
-    var reader = new FileReader();
-    reader.onload = function () {
-      var output = document.getElementById('output-image')
-      output.src = reader.result;
-    }
-    reader.readAsDataURL(event.target.files[0]);
-  }
-</script> -->
-
-</div>
-</div>
-<div class="video-container">
-  <h2 style="text-align: center; margin: 0px; color: rgb(245, 241, 241)" >Check how to upload picture</h2>
-  <video src="static\images\Untitled video - Made with Clipchamp (2).mp4" controls></video>
-  </div>
+    <script type="text/javascript">
+        function preview_image(event) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var output = document.getElementById('output-image');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 </html>
