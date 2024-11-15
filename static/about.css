@@ -1,3 +1,12 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Background Image and Overlay */
 .background-image {
     background-image: url('/static/images/index1.png');
     background-size: cover;
@@ -7,54 +16,100 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    margin: 50px auto;
-    width: 80%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.container1{
-    background: rgba(255, 255, 255, 0.69);
-    padding: 25px;
-    margin: 50px auto;
-    width: 80%;
-    height: 50%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.container2{
-    background: rgba(255, 255, 255, 0.658);
-    padding: 25px;
-    margin: 50px auto;
-    width: 80%;
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text contrast */
 }
+
+/* Container for Content */
+.container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    margin: 80px auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    color: #34495e;
+}
+
 h1, h2 {
     color: #2c3e50;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-p, ul {
-    color: #34495e;
-    line-height: 1.6;
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
+h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* List Styles */
 ul {
     list-style-type: disc;
     padding-left: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
 
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Links */
 a {
     color: #2980b9;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #28a745;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, ul li {
+        font-size: 1rem;
+    }
 }
