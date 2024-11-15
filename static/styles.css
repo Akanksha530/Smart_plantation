@@ -6,40 +6,10 @@ body {
     line-height: 1.6;
 }
 
+/* Background Image */
 .background-image {
     background: url('/static/images/index04.jpg') no-repeat center center fixed;
     background-size: cover;
-}
-
-.background-image1 {
-    background-image: url('/static/images/index2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.background-image2 {
-    background-image: url('/static/images/index03.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.background-image3 {
-    background-image: url('/static/images/index04.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 /* Hero Section Styles */
@@ -51,25 +21,7 @@ body {
     justify-content: center;
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay for contrast */
 }
-
-/* Content Section Styles */
-.content-section {
-    padding: 80px 20px;
-    background-color: #eceef1;
-    text-align: center;
-    max-width: 1200px;
-    margin: -40px auto 0; /* Negative top margin to overlap with hero section */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Align items in the center */
-    min-height: 100vh; /* Ensure full viewport height */
-    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.2); /* Add shadow for a subtle floating effect */
-    border-radius: 15px; /* Optional: Add rounded corners for a smooth look */
-}
-
 
 .overlay {
     position: absolute;
@@ -77,7 +29,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for contrast */
     z-index: 1;
 }
 
@@ -112,9 +64,23 @@ body {
     background-color: #218838;
 }
 
+/* Content Section Styles */
+.content-section {
+    background-color: #eceef1;
+    text-align: center;
+    width: 100%; /* Set to full width */
+    margin: 0;
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Navbar Styles */
 .navbar {
-    background: rgba(73, 62, 62, 0.5);
+    background: rgba(98, 83, 83, 0.5);
     color: white;
     padding: 15px 0;
     position: fixed;
@@ -124,7 +90,6 @@ body {
 }
 
 .navbar-container {
- 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -139,22 +104,20 @@ body {
     gap: 10px;
 }
 
-#logo{
+#logo {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-  }
-  .navbar-heading {
-    font-size: 1.5rem;           /* Increased font size for better visibility */
-    font-weight: 700;          /* Bolder font weight */
-    color: #ffffff;            /* White text color */
-   /* text-transform: uppercase;  Make the text all uppercase for emphasis */
-    letter-spacing: 1.5px;     /* Add spacing between letters for a modern look */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
-    margin: 0;                 /* Remove default margin */
-    /* padding: 8px 8px;        Add padding for more spacing around the text */
-   /* background: rgba(73, 62, 62, 0.5);     Add a background color for contrast */
-    border-radius: 5px;        /* Round the corners of the background */
+}
+
+.navbar-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #218838;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    border-radius: 5px;
 }
 
 .nav-menu {
@@ -175,9 +138,11 @@ body {
     color: #28a745;
 }
 
+/* Content Container */
 .content-container {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 100%; /* Full width */
+    padding: 20px; /* Padding for readability */
+    text-align: center; /* Center-align text */
 }
 
 .content-container h2 {
@@ -191,7 +156,90 @@ body {
     line-height: 1.8;
     margin-bottom: 20px;
 }
+/* How It Works Section */
+.how-it-works-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+}
 
+.steps-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+}
+
+.step i {
+    font-size: 2.5rem;
+    color: #28a745;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+}
+
+/* Technology Section */
+.technology-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #eceef1;
+}
+
+.technology-image {
+    max-width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Success Stories Section */
+.success-stories-section {
+    background-color: #fff;
+    padding: 50px 20px;
+}
+
+.stories-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.story {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Get Started Section */
+.get-started-section {
+    background-color: #333;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.get-started-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.get-started-section p {
+    font-size: 1.2rem;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
 /* Footer Styles */
 footer {
     background: #333;

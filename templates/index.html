@@ -4,83 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Plantation Monitoring System</title>
- 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
- 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-   
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body class="background-image">
 
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <!-- Overlay for Transparency -->
-        <div class="overlay"></div>
-        <div class="hero-content">
-            <h1>SMART PLANTATION MONITORING</h1>
-            <p>Empowering Modern Agriculture with Cutting-Edge Technology</p>
-            <a href="{{ url_for('services') }}" class="cta-button">Get Started</a>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar-container">
+        <div class="logo-heading">
+            <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
+            <h1 class="navbar-heading">SMART<br>Plantation</h1>
         </div>
-    </header>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="{{ url_for('services') }}" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+            <li class="nav-item"><a href="{{ url_for('about') }}" class="nav-link">About Us</a></li>
+            <li class="nav-item"><a href="{{ url_for('req') }}" class="nav-link">Request a Quote</a></li>
+            {% if session.get('user') %}
+                <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+            {% else %}
+                <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
+            {% endif %}
+        </ul>
+        <a href="{{ url_for('contact_us') }}" class="cta-button">Contact Us</a>
+    </div>
+</nav>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo-heading">
-                <img src="{{ url_for('static', filename='S.png') }}" alt="Smart Plantation Logo" id="logo">
-                <h1 class="navbar-heading">SMART<br>Plantation</h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="{{ url_for('services') }}">Services</a></li>
-                <li><a href="#">How It Works</a></li>
-                <li><a href="{{ url_for('about') }}">About Us</a></li>
-                <li><a href="{{ url_for('req') }}">Request a Quote</a></li>
-                {% if session.get('user') %}
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                {% else %}
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
-                {% endif %}
-            </ul>
-            <a href="{{ url_for('contact_us') }}" class="cta-button">Contact Us</a>
+<!-- Hero Section -->
+<header class="hero-section">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>SMART PLANTATION MONITORING</h1>
+        <p>Empowering Modern Agriculture with Cutting-Edge Technology</p>
+        <a href="{{ url_for('services') }}" class="cta-button">Get Started</a>
+    </div>
+</header>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works-section content-section">
+    <h2>How It Works</h2>
+    <div class="steps-container">
+        <div class="step">
+            <i class="fas fa-seedling"></i>
+            <h3>Step 1: Set Up Sensors</h3>
+            <p>Place sensors around your plantation to gather real-time data on soil, weather, and plant health.</p>
         </div>
-    </nav>
-
-    <!-- Content Section -->
-    <section class="content-section">
-        <div class="content-container">
-            <h2>Welcome to Smart Plantation Monitoring System</h2>?
-            <p>
-                Our Smart Plantation Monitoring System is designed to optimize farming productivity by leveraging advanced sensor technology and data analytics. 
-                Whether you are managing a small garden or a large agricultural operation, our system provides real-time insights into soil moisture levels, 
-                weather conditions, and plant health.
-            </p>
-            <p>
-                With our monitoring system, you can make informed decisions on irrigation, fertilization, and pest control, ensuring that your crops 
-                receive the care they need to thrive. Our technology is easy to use, customizable, and scalable to fit the needs of any size plantation.
-            </p>
-            <p>
-                Join the revolution in smart agriculture and take your plantation management to the next level. Explore our services, learn how our system works, 
-                and discover how we can help you achieve higher yields and more sustainable farming practices.
-            </p>
+        <div class="step">
+            <i class="fas fa-satellite-dish"></i>
+            <h3>Step 2: Monitor Remotely</h3>
+            <p>Receive data on your mobile device or desktop, allowing for convenient monitoring anytime, anywhere.</p>
         </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-container">
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <p>&copy; 2024 Smart Plantation Monitoring System. All rights reserved.</p>
+        <div class="step">
+            <i class="fas fa-chart-line"></i>
+            <h3>Step 3: Analyze Data</h3>
+            <p>Our system analyzes data to provide insights and recommendations for optimal plantation care.</p>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Link to External JavaScript -->
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+<!-- Our Technology Section -->
+<section class="technology-section content-section">
+    <h2>Our Advanced Technology</h2>
+    <p>We use cutting-edge technology like IoT, AI, and machine learning to deliver precise data and insights for plantation management.</p>
+    <img src="{{ url_for('static', filename='tech_image.jpg') }}" alt="Technology Image" class="technology-image">
+</section>
+
+<!-- Success Stories Section -->
+<section class="success-stories-section content-section">
+    <h2>Success Stories</h2>
+    <div class="stories-container">
+        <div class="story">
+            <h3>Organic Farm Transformation</h3>
+            <p>“Our organic farm saw a 30% increase in yield after implementing the Smart Plantation System. The data insights are invaluable!”</p>
+            <span>- Alex M., Farm Owner</span>
+        </div>
+        <div class="story">
+            <h3>Sustainable Agriculture</h3>
+            <p>“Smart Plantation has helped us reduce water usage by 20%, making our farming practices more sustainable.”</p>
+            <span>- Lisa K., Agronomist</span>
+        </div>
+    </div>
+</section>
+
+<!-- Get Started Section -->
+<section class="get-started-section">
+    <h2>Ready to Enhance Your Plantation?</h2>
+    <p>Join the community of smart farmers today. Start monitoring, optimizing, and increasing your yield now.</p>
+    <a href="{{ url_for('register') }}" class="cta-button">Sign Up Now</a>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2024 Smart Plantation Monitoring System. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap and JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
