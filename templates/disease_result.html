@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4b6587;
+            margin-bottom: 10px;
+        }
+
+        .result {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3867d6;
+            margin: 15px 0 25px;
+        }
+
+        .message {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #4b7bec;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3867d6;
+        }
+
+        .icon {
+            font-size: 3em;
+            color: #45aaf2;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🌱</div>
+        <h2>Prediction Result</h2>
+        <p class="result">{{ prediction }}</p>
+        <p class="message">The above result indicates the detected disease for the uploaded image.</p>
+        <a href="{{ url_for('disease') }}" class="button">Upload Another Image</a>
+    </div>
+</body>
+</html>
